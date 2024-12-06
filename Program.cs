@@ -14,17 +14,17 @@ namespace MostElement
 
             Random random = new Random();
 
-            int[,] numberArray = new int[10, 10];
+            int[,] numbers = new int[10, 10];
 
-            for (int i = 0; i < numberArray.GetLength(0); i++)
+            for (int i = 0; i < numbers.GetLength(0); i++)
             {
-                for (int j = 0; j < numberArray.GetLength(1); j++)
+                for (int j = 0; j < numbers.GetLength(1); j++)
                 {
-                    numberArray[i, j] = random.Next(minRandomNumber, maxRandomNumber);
-                    Console.Write(numberArray[i, j] + " ");
+                    numbers[i, j] = random.Next(minRandomNumber, maxRandomNumber);
+                    Console.Write(numbers[i, j] + " ");
 
-                    if (numberArray[i, j] > mostNumberChange)
-                        mostNumberChange = numberArray[i, j];
+                    if (numbers[i, j] > mostNumberChange)
+                        mostNumberChange = numbers[i, j];
                 }
 
                 Console.WriteLine("");
@@ -33,14 +33,14 @@ namespace MostElement
             Console.WriteLine();
             Console.WriteLine($"Наибольший элемент в матрице {mostNumberChange}\n");
 
-            for (int i = 0; i < numberArray.GetLength(0); i++)
+            for (int i = 0; i < numbers.GetLength(0); i++)
             {
-                for (int j = 0; j < numberArray.GetLength(1); j++)
+                for (int j = 0; j < numbers.GetLength(1); j++)
                 {
-                    if (numberArray[i, j] == mostNumberChange)
-                        numberArray[i, j] = replaceNumber;
+                    if (numbers[i, j] == mostNumberChange)
+                        numbers[i, j] = replaceNumber;
 
-                    Console.Write(numberArray[i, j] + " ");
+                    Console.Write(numbers[i, j] + " ");
                 }
 
                 Console.WriteLine();
