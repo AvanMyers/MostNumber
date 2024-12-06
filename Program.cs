@@ -7,39 +7,40 @@ namespace MostElement
         static void Main(string[] args)
         {
             int number;
-            int minNumber = 1;
-            int maxNumber = 10;
-            int numberChange = 0;
+            int minRandomNumber = -10;
+            int maxRandomNumber = 10;
+            int mostNumberChange = int.MinValue;
+            int replaceNumber = 0;
 
             Random random = new Random();
 
-            int[,] array = new int[10, 10];
+            int[,] numberArray = new int[10, 10];
 
-            for (int i = 0; i < array.GetLength(0); i++)
+            for (int i = 0; i < numberArray.GetLength(0); i++)
             {
-                for (int j = 0; j < array.GetLength(1); j++)
+                for (int j = 0; j < numberArray.GetLength(1); j++)
                 {
-                    array[i, j] = random.Next(minNumber, maxNumber);
-                    Console.Write(array[i, j] + " ");
+                    numberArray[i, j] = random.Next(minRandomNumber, maxRandomNumber);
+                    Console.Write(numberArray[i, j] + " ");
 
-                    if (array[i, j] > numberChange)
-                        numberChange = array[i, j];
+                    if (numberArray[i, j] > mostNumberChange)
+                        mostNumberChange = numberArray[i, j];
                 }
 
                 Console.WriteLine("");
             }
 
             Console.WriteLine();
-            Console.WriteLine($"Наибольший элемент в матрице {numberChange}\n");
+            Console.WriteLine($"Наибольший элемент в матрице {mostNumberChange}\n");
 
-            for (int i = 0; i < array.GetLength(0); i++)
+            for (int i = 0; i < numberArray.GetLength(0); i++)
             {
-                for (int j = 0; j < array.GetLength(1); j++)
+                for (int j = 0; j < numberArray.GetLength(1); j++)
                 {
-                    if (array[i, j] == numberChange)
-                        array[i, j] = 0;
+                    if (numberArray[i, j] == mostNumberChange)
+                        numberArray[i, j] = replaceNumber;
 
-                    Console.Write(array[i, j] + " ");
+                    Console.Write(numberArray[i, j] + " ");
                 }
 
                 Console.WriteLine();
